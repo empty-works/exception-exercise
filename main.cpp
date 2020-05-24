@@ -28,10 +28,10 @@ int main() {
 	catch(char const *e) {
 		std::cout << "Error c-style string: " << e << std::endl;
 	}
-	catch(std::string e) {
+	catch(std::string &e) {
 		std::cout << "Error c++ string: " << e << std::endl;
 	}
-	catch(std::bad_alloc e) {
+	catch(std::bad_alloc &e) {
 		std::cout << "Bad allocation." << std::endl << std::endl;
 	}
 

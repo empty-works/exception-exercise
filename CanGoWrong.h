@@ -4,8 +4,10 @@
 class CanGoWrong {
 
 	public:
-		char *error_test_ = new char[9999999999999999];	
-		delete [] error_test;
+		CanGoWrong() {
+			char *error_test_ = new char[9999999999999999];	
+			delete [] error_test_;
+		}
 };
 
 #endif
