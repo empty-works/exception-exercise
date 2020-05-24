@@ -1,11 +1,12 @@
 #include <iostream>
 #include <string>
 #include "CanGoWrong.h"
-
+#include "CustomException.h"
 void mightGoWrong() {
 
 	bool error {false};
 	bool error2 {false};
+	bool error3 {true};
 
 	if(error) {
 		throw "Hello. This is an error.";
@@ -13,7 +14,11 @@ void mightGoWrong() {
 	if(error2) {
 		throw std::string("Another error.");
 	}
-	CanGoWrong cgw;	
+	//CanGoWrong cgw;	
+	if(error3) {
+		CustomException e;
+	       	throw e;	
+	}	
 }
 
 int main() {
@@ -33,6 +38,9 @@ int main() {
 	}
 	catch(std::bad_alloc &e) {
 		std::cout << "Bad allocation." << std::endl << std::endl;
+	}
+	catch(CustomException &e) {
+		std::cout << e.what() << std::endl;	
 	}
 
 	return 0;
