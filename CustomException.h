@@ -4,8 +4,8 @@
 class CustomException: std::exception {
 
 	public:
-		virtual const char * what() const throw() {
-			throw "Custom exception thrown.";	
+		const char* what() const throw() {
+			return "Custom exception thrown.";	
 		}
 };
 
