@@ -3,10 +3,14 @@
 
 void mightGoWrong() {
 
-	bool error {true};
+	bool error {false};
+	bool error2 {true};
 
 	if(error) {
-		throw 8;
+		throw "Hello. This is an error.";
+	}
+	if(error2) {
+		throw std::string("Another error.");
 	}
 }
 
@@ -17,8 +21,13 @@ int main() {
 		mightGoWrong();
 	}
 	catch(int e) {
-	
-		std::cout << "Error: " << e << std::endl;
+		std::cout << "Error int: " << e << std::endl;
+	}
+	catch(char const *e) {
+		std::cout << "Error c-style string: " << e << std::endl;
+	}
+	catch(std::string e) {
+		std::cout << "Error c++ string: " << e << std::endl;
 	}
 
 	return 0;
